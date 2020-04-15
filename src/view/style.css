@@ -1,0 +1,19 @@
+.root {
+    -fx-background-color: rgba(66, 116, 255, 0.89);
+    -fx-padding: 40px, 40px, 40px, 40px;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+.startLogin {
+    -fx-alignment: center;
+    -fx-vgap: 5px;
+    -fx-hgap: 10px;
+    -fx-background-color: GOLD;
+}
+
+#circleID:hover {
+    -fx-fill: #fff936;
+
+}
+
+

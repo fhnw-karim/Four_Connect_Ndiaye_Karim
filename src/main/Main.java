@@ -2,9 +2,9 @@ package main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import view.MainGameView;
-import view.LoginView;
 import model.PlayerStatus;
+import view.LoginView;
+import view.MainGameView;
 
 
 public class Main extends Application {

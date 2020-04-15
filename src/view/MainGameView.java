@@ -3,11 +3,9 @@ package view;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import model.Board;
 
 
 public class MainGameView extends BorderPane {
-
 
     private Stage stage;
     private BorderPane root;
@@ -19,14 +17,18 @@ public class MainGameView extends BorderPane {
         this.stage = stage;
 
     }
+
+
     public void startGame() {
         this.setId("FC_View");
         Scene scene = new Scene(this, 800, 800);
         stage.setScene(scene);
         stage.setTitle("Main Game");
         stage.show();
+        stage.setResizable(false);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
     }
+
 
 }
 
@@ -37,9 +39,6 @@ public class MainGameView extends BorderPane {
  GridPane grid = new GridPane();
  grid.setHgap(10);
  grid.setVgap(10);
-
-
-
 
 
  //gererate my circles, later they should be white and then turn yellow/red when clicked

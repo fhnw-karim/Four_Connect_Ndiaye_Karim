@@ -2,7 +2,6 @@ package view;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBase;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -23,10 +22,14 @@ public class LoginView extends GridPane {
     public LoginView(Stage primaryStage){
 
         this.stage = primaryStage;
-        this.player1 = new Label("Playername 1: ");
-        this.player2 = new Label("Playername 2: ");
+
+        this.player1 = new Label("Player one ");
+        this.player2 = new Label("Player two ");
+
         this.name1 = new TextField("");
+        this.name1.setId("nameField1");
         this.name2 = new TextField("");
+        this.name1.setId("nameField2");
 
         this.startGameButton = new Button("START");
         startGameButton.setId("Button");
@@ -65,9 +68,9 @@ public class LoginView extends GridPane {
 
     public void startLogin(){
         this.setId("LoginView");
-        Scene scene = new Scene(this, 500, 500);
+        Scene scene = new Scene(this, 800, 800);
         stage.setScene(scene);
-        stage.setTitle("Four Connect");
+        stage.setTitle("Connect Four by Karim N'diaye");
         stage.show();
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 

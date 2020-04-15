@@ -1,15 +1,14 @@
 #LoginView{
     -fx-background-color:
             rgba(0,0,0,0.08),
-            linear-gradient(#e4fbff 0%, #309ff1 100%);
+            linear-gradient(#ffffff 0%, #309ff1 100%);
     -fx-alignment: center;
     -fx-vgap: 10px;
     -fx-hgap: 10px;
-    -fx-max-width: 100px;
-    -fx-max-height: 100px;
-    -fx-font-family: Calibri;
-    -fx-font-size: 25;
-    -fx-font-smoothing-type: gray;
+    -fx-font-size: 20;
+    -fx-border-color: rgb(255, 255, 255);
+
+
 }
 #Button {
     /*stolen from steve jobs*/
@@ -28,7 +27,12 @@
     -fx-background-color:
             rgba(0,0,0,0.08),
             linear-gradient(#e4fbff 0%, #309ff1 100%);
+}
+#nameField1{
 
 
 }
+#nameField2{
+
+
 }

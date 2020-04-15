@@ -2,7 +2,6 @@ package model;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import model.Player;
 
 public class PlayerStatus extends HBox {
 

@@ -1,9 +1,9 @@
 package main;
 
 import javafx.stage.Stage;
-import view.MainGameView;
-import view.LoginView;
 import model.PlayerStatus;
+import view.LoginView;
+import view.MainGameView;
 
 public class Controller {
 
@@ -46,6 +46,8 @@ public class Controller {
             //launch game
             maingame_view.startGame();
         });
+
+
 
     }
 

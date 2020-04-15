@@ -1,0 +1,39 @@
+<changelist name="Uncommitted_changes_before_Update_at_15_04_2020_13_52_[Default_Changelist]" date="1586951571944" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_04_2020_13_52_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 15.04.2020 13:52 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Four_Connect_N'diaye_Karim/view/FC_View.class" />
+    <option name="AFTER_PATH" value="out/production/Four_Connect_N'diaye_Karim/view/FC_View.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_04_2020_13_52_[Default_Changelist]/FC_View.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Four_Connect_N'diaye_Karim/main/FC_Main.class" />
+    <option name="AFTER_PATH" value="out/production/Four_Connect_N'diaye_Karim/main/FC_Main.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_04_2020_13_52_[Default_Changelist]/FC_Main.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Four_Connect_N'diaye_Karim/view/LoginView.class" />
+    <option name="AFTER_PATH" value="out/production/Four_Connect_N'diaye_Karim/view/LoginView.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_04_2020_13_52_[Default_Changelist]/LoginView.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Four_Connect_N'diaye_Karim/main/FC_Controller.class" />
+    <option name="AFTER_PATH" value="out/production/Four_Connect_N'diaye_Karim/main/FC_Controller.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_04_2020_13_52_[Default_Changelist]/FC_Controller.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Four_Connect_N'diaye_Karim/view/Board.class" />
+    <option name="AFTER_PATH" value="out/production/Four_Connect_N'diaye_Karim/view/Board.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_04_2020_13_52_[Default_Changelist]/Board.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Four_Connect_N'diaye_Karim/META-INF/Four_Connect_N'diaye_Karim.kotlin_module" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Four_Connect_N'diaye_Karim/view/PlayerStatus.class" />
+    <option name="AFTER_PATH" value="out/production/Four_Connect_N'diaye_Karim/view/PlayerStatus.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_04_2020_13_52_[Default_Changelist]/PlayerStatus.class" />
+  </binary>
+</changelist>

@@ -6,26 +6,19 @@ import javafx.stage.Stage;
 import model.Board;
 
 
-public class FC_View extends BorderPane {
+public class MainGameView extends BorderPane {
 
 
     private Stage stage;
     private BorderPane root;
-    private Board board;
 
 
-    public FC_View(Stage stage) {
+    public MainGameView(Stage stage) {
 
-        this.root = new BorderPane(board);
-        this.board = new Board();
+        this.root = new BorderPane();
         this.stage = stage;
 
-
-
-
     }
-
-
     public void startGame() {
         this.setId("FC_View");
         Scene scene = new Scene(this, 800, 800);
@@ -34,7 +27,6 @@ public class FC_View extends BorderPane {
         stage.show();
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
     }
-
 
 }
 

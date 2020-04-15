@@ -23,8 +23,8 @@ public class LoginView extends GridPane {
     public LoginView(Stage primaryStage){
 
         this.stage = primaryStage;
-        this.player1 = new Label("Spielername 1: ");
-        this.player2 = new Label("Spielername 2: ");
+        this.player1 = new Label("Playername 1: ");
+        this.player2 = new Label("Playername 2: ");
         this.name1 = new TextField("");
         this.name2 = new TextField("");
 
@@ -42,10 +42,6 @@ public class LoginView extends GridPane {
 
     }
 
-
-
-    //TODO ADD CSS, ADD BUTTON CONFIRM SETONACTION TO START FC_VIEw
-    //getter for button which will launch FC view via controller class
 
     public Button getstartGameButton(){
         return startGameButton;

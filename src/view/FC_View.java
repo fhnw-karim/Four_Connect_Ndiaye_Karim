@@ -12,23 +12,21 @@ import model.Player;
 
 public class FC_View extends BorderPane {
 
-    public BorderPane root;
+
     private Stage stage;
     Board board = new Board();
 
 
     public FC_View(Stage stage) {
 
-        this.root = new BorderPane();
-        this.stage = stage;
         this.board = new Board();
+        this.stage = stage;
 
     }
 
 
     public void startGame() {
-        board.generateBoard();
-        root.setCenter(board);
+        this.setId("FC_View");
         Scene scene = new Scene(this, 800, 800);
         stage.setScene(scene);
         stage.setTitle("Main Game");

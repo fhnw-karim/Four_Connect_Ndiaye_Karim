@@ -8,13 +8,12 @@ public class PlayerStatus extends HBox {
 
     private Label playerName;
     private Label isWinner;
-    Player player;
+
 
     public PlayerStatus(){
 
-        this.playerName = new Label("ayas");
+        this.playerName = new Label("wasd");
         this.isWinner = new Label("insert name 1 or 2");
-
         this.getChildren().addAll(playerName, isWinner);
 
     }

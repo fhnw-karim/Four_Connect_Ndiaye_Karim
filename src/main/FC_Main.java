@@ -23,6 +23,7 @@ public class FC_Main extends Application {
 
         LoginView start = new LoginView(primaryStage);
         FC_View game = new FC_View(primaryStage);
+
         PlayerStatus player1 = new PlayerStatus();
         PlayerStatus player2 = new PlayerStatus();
 

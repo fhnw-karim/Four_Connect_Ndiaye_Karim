@@ -17,25 +17,27 @@ public class LoginView extends GridPane {
     private TextField name1, name2;
 
     private Button startGameButton;
+
     private Stage stage;
 
     public LoginView(Stage primaryStage){
 
         this.stage = primaryStage;
-        this.player1 = new Label("Spieler 1: ");
-        this.player2 = new Label("Spieler 2: ");
-        this.name1 = new TextField("xy");
-        this.name2 = new TextField("yz");
+        this.player1 = new Label("Spielername 1: ");
+        this.player2 = new Label("Spielername 2: ");
+        this.name1 = new TextField("");
+        this.name2 = new TextField("");
 
-        this.startGameButton = new Button("Start the game allready!");
+        this.startGameButton = new Button("START");
+        startGameButton.setId("Button");
 
-        this.add(player1, 0 ,1);
-        this.add(player2, 0, 2);
+        this.add(player1, 0 ,0);
+        this.add(player2, 0, 1);
 
         this.add(name1, 1, 0);
         this.add(name2, 1, 1);
 
-        this.add(startGameButton, 3, 3);
+        this.add(startGameButton, 0, 5);
 
 
     }
@@ -44,6 +46,7 @@ public class LoginView extends GridPane {
 
     //TODO ADD CSS, ADD BUTTON CONFIRM SETONACTION TO START FC_VIEw
     //getter for button which will launch FC view via controller class
+
     public Button getstartGameButton(){
         return startGameButton;
     }
@@ -65,8 +68,7 @@ public class LoginView extends GridPane {
     }
 
     public void startLogin(){
-
-
+        this.setId("LoginView");
         Scene scene = new Scene(this, 500, 500);
         stage.setScene(scene);
         stage.setTitle("Four Connect");

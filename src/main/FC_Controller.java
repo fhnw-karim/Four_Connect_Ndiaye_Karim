@@ -2,7 +2,6 @@ package main;
 
 import javafx.stage.Stage;
 import model.Player;
-import sun.rmi.runtime.Log;
 import view.Board;
 import view.FC_View;
 import view.LoginView;
@@ -10,8 +9,8 @@ import view.PlayerStatus;
 
 public class FC_Controller {
 
-
-
+    //Board
+    private Board board;
 
     //stages bzw. scenes
     private LoginView loginView;
@@ -29,16 +28,11 @@ public class FC_Controller {
         this.loginView = loginView;
         this.fc_view = fc_view;
 
-
         this.player1 = player1;
         this.player2 = player2;
 
-
-
         this.name1 = name1;
         this.name2 = name2;
-
-
 
         this.primaryStage = primaryStage;
 
@@ -53,12 +47,6 @@ public class FC_Controller {
             //launch game
             fc_view.startGame();
         });
-
-
-
-
-
-
 
     }
 

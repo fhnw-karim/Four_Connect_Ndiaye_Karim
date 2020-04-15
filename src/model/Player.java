@@ -4,9 +4,9 @@ public class Player {
 
     private String playerName;
     private int playerID;
-    private int points;
 
-    public Player(){
+
+    public Player() {
 
     }
 
@@ -17,8 +17,5 @@ public class Player {
     public int getPlayerID() {
         return playerID;
     }
-
-    public int getPoints() {
-        return points;
-    }
 }
+

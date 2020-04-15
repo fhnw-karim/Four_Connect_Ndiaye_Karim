@@ -1,26 +1,27 @@
 package view;
 
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import model.Player;
+import model.Board;
 
 
 public class FC_View extends BorderPane {
 
 
     private Stage stage;
-    Board board = new Board();
+    private BorderPane root;
+    private Board board;
 
 
     public FC_View(Stage stage) {
 
+        this.root = new BorderPane(board);
         this.board = new Board();
         this.stage = stage;
+
+
+
 
     }
 

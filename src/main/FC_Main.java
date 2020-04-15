@@ -2,10 +2,10 @@ package main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import view.Board;
+import model.Board;
 import view.FC_View;
 import view.LoginView;
-import view.PlayerStatus;
+import model.PlayerStatus;
 
 
 public class FC_Main extends Application {
@@ -27,7 +27,9 @@ public class FC_Main extends Application {
         PlayerStatus player1 = new PlayerStatus();
         PlayerStatus player2 = new PlayerStatus();
 
-        FC_Controller controller = new FC_Controller(start, game, primaryStage, player1, player2);
+        Board board = new Board(board);
+
+        FC_Controller controller = new FC_Controller(start, game, primaryStage, player1, player2, board);
 
         //start login screen then if button pressed start mainGame (fc_view)
         start.startLogin();

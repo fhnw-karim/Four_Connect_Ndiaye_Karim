@@ -1,4 +1,4 @@
-package view;
+package model;
 
 
 import javafx.scene.control.Button;
@@ -18,9 +18,11 @@ public class Board extends GridPane {
     GridPane board = new GridPane();
     */
 
+    private Label test;
 
     public Board() {
         this.setId("board");
+        this.test = new Label("hdisuabdaubd");
 
     }
 

@@ -1,11 +1,10 @@
 package main;
 
 import javafx.stage.Stage;
-import model.Player;
-import view.Board;
+import model.Board;
 import view.FC_View;
 import view.LoginView;
-import view.PlayerStatus;
+import model.PlayerStatus;
 
 public class FC_Controller {
 
@@ -24,7 +23,7 @@ public class FC_Controller {
     private LoginView name2;
 
     //array for
-    public FC_Controller(LoginView loginView, FC_View fc_view, Stage primaryStage, PlayerStatus player1, PlayerStatus player2){
+    public FC_Controller(LoginView loginView, FC_View fc_view, Stage primaryStage, PlayerStatus player1, PlayerStatus player2, Board board){
         this.loginView = loginView;
         this.fc_view = fc_view;
 
@@ -33,6 +32,8 @@ public class FC_Controller {
 
         this.name1 = name1;
         this.name2 = name2;
+
+        this.board = board;
 
         this.primaryStage = primaryStage;
 

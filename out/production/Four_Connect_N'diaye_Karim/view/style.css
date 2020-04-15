@@ -1,19 +1,33 @@
-.root {
-    -fx-background-color: rgba(66, 116, 255, 0.89);
-    -fx-padding: 40px, 40px, 40px, 40px;
+#LoginView{
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#e4fbff 0%, #309ff1 100%);
     -fx-alignment: center;
-    -fx-text-alignment: center;
-}
-.startLogin {
-    -fx-alignment: center;
-    -fx-vgap: 5px;
+    -fx-vgap: 10px;
     -fx-hgap: 10px;
-    -fx-background-color: GOLD;
+    -fx-max-width: 100px;
+    -fx-max-height: 100px;
+    -fx-font-family: Calibri;
+    -fx-font-size: 25;
+    -fx-font-smoothing-type: gray;
 }
-
-#circleID:hover {
-    -fx-fill: #fff936;
+#Button {
+    /*stolen from steve jobs*/
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#5a61af, #51536d),
+            linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-padding: 3 30 3 30;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 14px;
 
 }
+#FC_View {
+    -fx-background-color:
+            rgba(0,0,0,0.08),
+            linear-gradient(#e4fbff 0%, #309ff1 100%);
 
 
+}

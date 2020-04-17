@@ -12,6 +12,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import view.PlayerStatusView;
@@ -48,7 +49,8 @@ public class Board extends GridPane {
     }
 
     public javafx.scene.shape.Shape generateBoard() {
-        javafx.scene.shape.Shape shape = new javafx.scene.shape.Rectangle((COLUMNS + 1) * TILE_SIZE, (ROWS + 1) * TILE_SIZE);
+        Shape shape = new Rectangle((COLUMNS + 1) * TILE_SIZE, (ROWS + 1) * TILE_SIZE);
+        shape.setId("shape");
 
         for (int y = 0; y < ROWS; y++) {
             for (int x = 0; x < COLUMNS; x++) {
@@ -58,20 +60,9 @@ public class Board extends GridPane {
                 circle.setTranslateX(x * (TILE_SIZE + 5) + TILE_SIZE / 4);
                 circle.setTranslateY(y * (TILE_SIZE + 5) + TILE_SIZE / 4);
 
-                shape = javafx.scene.shape.Shape.subtract(shape, circle);
+                shape = Shape.subtract(shape, circle);
             }
         }
-
-        Light.Distant light = new Light.Distant();
-        light.setAzimuth(45.0);
-        light.setElevation(30.0);
-
-        Lighting lighting = new Lighting();
-        lighting.setLight(light);
-        lighting.setSurfaceScale(5.0);
-
-        shape.setFill(Color.WHITESMOKE);
-        shape.setEffect(lighting);
 
         return shape;
     }
@@ -187,6 +178,17 @@ public class Board extends GridPane {
             return Optional.empty();
 
         return Optional.ofNullable(grid[column][row]);
+    }
+
+    public static class Disc extends Circle {
+        private final boolean red;
+        public Disc(boolean red) {
+            super(TILE_SIZE / 2, red ? Color.RED : Color.YELLOW);
+            this.red = red;
+
+            setCenterX(TILE_SIZE / 2);
+            setCenterY(TILE_SIZE / 2);
+        }
     }
 
 

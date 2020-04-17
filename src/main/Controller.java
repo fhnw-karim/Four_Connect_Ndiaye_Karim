@@ -44,7 +44,7 @@ public class Controller {
             this.player2.getPlayerName().setText(loginView.getName2().getText());
 
             //launch game
-            maingame_view.startGame();
+            maingame_view.startGame(loginView.getName1().getText(),loginView.getName2().getText());
         });
 
 

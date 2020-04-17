@@ -48,7 +48,7 @@ public class MainGameView extends BorderPane {
 
         rootPane.getChildren().addAll(root);
 
-        Scene scene = new Scene(this, 800, 800);
+        Scene scene = new Scene(rootPane, (gameBoard.COLUMNS + 1) * gameBoard.TILE_SIZE, (gameBoard.ROWS + 1) * gameBoard.TILE_SIZE);
         stage.setScene(scene);
         stage.setTitle("Main Game");
         stage.show();

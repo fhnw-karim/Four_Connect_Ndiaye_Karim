@@ -1,6 +1,7 @@
 package view;
 
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
@@ -14,10 +15,16 @@ public class MainGameView extends BorderPane {
     private BorderPane root;
 
 
+    ///////////////////////////TODO ADD THIS DAMN BUTTON
+    private Button endGameButton;
+
+
     public MainGameView(Stage stage) {
 
         this.root = new BorderPane();
         this.stage = stage;
+
+
 
     }
 
@@ -37,7 +44,6 @@ public class MainGameView extends BorderPane {
 
         Shape gridShape = gameBoard.generateBoard();
 
-
         root.getChildren().add(gridShape);
 
         root.getChildren().addAll(gameBoard.makeColumns());
@@ -51,7 +57,6 @@ public class MainGameView extends BorderPane {
         stage.setResizable(true);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
     }
-
 
 }
 

@@ -3,6 +3,7 @@ package model;
 
 import javafx.animation.TranslateTransition;
 import javafx.geometry.Point2D;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -31,6 +32,9 @@ public class Board extends GridPane {
     public boolean redWin = true;
     //2d array
     public Disc[][] grid = new Disc[columns][rows];
+
+
+
 
     /*useless
     private ArrayList<Integer> vertical;

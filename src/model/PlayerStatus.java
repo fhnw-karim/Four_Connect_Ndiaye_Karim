@@ -11,8 +11,8 @@ public class PlayerStatus extends VBox {
 
     public PlayerStatus() {
 
-        this.playerName = new Label("wasd");
-        this.isWinner = new Label("insert name 1 or 2");
+        this.playerName = new Label("");
+        this.isWinner = new Label("");
         this.getChildren().addAll(playerName, isWinner);
 
     }

@@ -3,7 +3,6 @@ package model;
 
 import javafx.animation.TranslateTransition;
 import javafx.geometry.Point2D;
-import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -62,7 +61,7 @@ public class Board extends GridPane {
                 circle.setTranslateY(y * (size + 5) + size / 4);
 
                 shape = Shape.subtract(shape, circle);
-                shape.setFill(Color.rgb(20, 20, 200));
+                shape.setFill(Color.rgb(20, 140, 240));
                 shape.setSmooth(true);
             }
         }
@@ -80,7 +79,6 @@ public class Board extends GridPane {
             rect.setTranslateX(x * (size + 5) + size / 4);
             //transparent by default for the circles
             rect.setFill(Color.TRANSPARENT);
-
 
             final int column = x;
             rect.setOnMouseClicked(e -> validateMove(new Disc(redWin), column));
@@ -171,10 +169,10 @@ public class Board extends GridPane {
 
 
         if (redWin) {
-            PlayerStatusView playerStatusView = new PlayerStatusView(this.primary_stage, this.player1, this.player2, "Is the Winner", "is the Loser");
+            PlayerStatusView playerStatusView = new PlayerStatusView(this.primary_stage, this.player1, this.player2, "is the Winner", "is the Loser");
             playerStatusView.startStausView();
         } else {
-            PlayerStatusView playerStatusView = new PlayerStatusView(this.primary_stage, this.player1, this.player2, "Is the Loser", "is the Winner");
+            PlayerStatusView playerStatusView = new PlayerStatusView(this.primary_stage, this.player1, this.player2, "is the Loser", "is the Winner");
             playerStatusView.startStausView();
         }
 

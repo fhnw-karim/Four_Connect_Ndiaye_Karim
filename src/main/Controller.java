@@ -29,15 +29,13 @@ public class Controller {
         this.player2 = player2;
 
 
-
-
         this.primaryStage = primaryStage;
 
         //functionality for button to start fc_view aka main game screen
         //when button is pressed, the whole game should be initialized with playernames and everything.
         this.loginView.getstartGameButton().setOnAction(event -> {
-            this.maingame_view.setLeft(player1);
-            this.maingame_view.setRight(player2);
+            //this.maingame_view.setLeft(player1);
+            //this.maingame_view.setRight(player2);
             this.player1.getPlayerName().setText(loginView.getName1().getText());
             this.player2.getPlayerName().setText(loginView.getName2().getText());
 

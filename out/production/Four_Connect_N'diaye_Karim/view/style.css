@@ -20,27 +20,16 @@
     -fx-padding: 3 30 3 30;
     -fx-text-fill: #242d35;
     -fx-font-size: 14px;
-
 }
 
 #board {
     -fx-background-color: rgba(0, 0, 0, 0.08),
     linear-gradient(#ffffff 0%, #309ff1 100%);
+    -fx-alignment: center;
+    -fx-vgap: 10px;
+    -fx-hgap: 10px;
+    -fx-font-size: 20;
+    -fx-border-color: rgb(255, 255, 255);
 
 }
 
-.board {
-    -fx-background-color: rgba(0, 0, 0, 0.08),
-    linear-gradient(#ffffff 0%, #309ff1 100%);
-
-}
-
-#gameBoard {
-    -fx-background-color: rgba(0, 0, 0, 0.08),
-    linear-gradient(#ffffff 0%, #309ff1 100%);
-}
-
-.gameBoard {
-    -fx-background-color: rgba(0, 0, 0, 0.08),
-    linear-gradient(#ffffff 0%, #309ff1 100%);
-}

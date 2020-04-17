@@ -1,9 +1,7 @@
 package view;
 
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -18,7 +16,7 @@ public class PlayerStatusView extends GridPane {
 
     private Stage stage;
 
-    public PlayerStatusView(Stage primaryStage,String player_1_name, String player_2_name,String player_1_status,String player_2_status){
+    public PlayerStatusView(Stage primaryStage, String player_1_name, String player_2_name, String player_1_status, String player_2_status) {
 
         this.stage = primaryStage;
         this.player1 = new Label(player_1_name);
@@ -27,11 +25,10 @@ public class PlayerStatusView extends GridPane {
         this.player2_status = new Label(player_2_status);
 
 
-        this.add(player1, 0 ,0);
+        this.add(player1, 0, 0);
         this.add(player2, 0, 1);
-        this.add(player1_status, 1 ,0);
+        this.add(player1_status, 1, 0);
         this.add(player2_status, 1, 1);
-
 
 
     }
@@ -45,7 +42,7 @@ public class PlayerStatusView extends GridPane {
     }
 
 
-    public void startStausView(){
+    public void startStausView() {
         this.setId("LoginView");
         Scene scene = new Scene(this, 500, 500);
         stage.setScene(scene);
@@ -54,7 +51,6 @@ public class PlayerStatusView extends GridPane {
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
     }
-
 
 
 }

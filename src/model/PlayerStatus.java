@@ -9,7 +9,7 @@ public class PlayerStatus extends VBox {
     private Label isWinner;
 
 
-    public PlayerStatus(){
+    public PlayerStatus() {
 
         this.playerName = new Label("wasd");
         this.isWinner = new Label("insert name 1 or 2");

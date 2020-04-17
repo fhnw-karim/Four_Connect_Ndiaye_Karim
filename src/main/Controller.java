@@ -21,15 +21,13 @@ public class Controller {
     private LoginView name2;
 
     //array for
-    public Controller(LoginView loginView, MainGameView maingame_view, Stage primaryStage, PlayerStatus player1, PlayerStatus player2){
+    public Controller(LoginView loginView, MainGameView maingame_view, Stage primaryStage, PlayerStatus player1, PlayerStatus player2) {
         this.loginView = loginView;
         this.maingame_view = maingame_view;
 
         this.player1 = player1;
         this.player2 = player2;
 
-        this.name1 = name1;
-        this.name2 = name2;
 
 
 
@@ -44,9 +42,8 @@ public class Controller {
             this.player2.getPlayerName().setText(loginView.getName2().getText());
 
             //launch game
-            maingame_view.startGame(loginView.getName1().getText(),loginView.getName2().getText());
+            maingame_view.startGame(loginView.getName1().getText(), loginView.getName2().getText());
         });
-
 
 
     }

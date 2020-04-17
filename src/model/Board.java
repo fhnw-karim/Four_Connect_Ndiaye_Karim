@@ -22,21 +22,13 @@ import java.util.stream.IntStream;
 public class Board extends GridPane {
 
 
-
-    public String player1, player2;
-
-    public Pane root = new Pane();
-
-
-
     public static final int columns = 7;
     public static final int rows = 6;
-
-    public boolean redWin = true;
-
     //makes circles bigger
     public static final int size = 100;
-
+    public String player1, player2;
+    public Pane root = new Pane();
+    public boolean redWin = true;
     //2d array
     public Disc[][] grid = new Disc[columns][rows];
 
@@ -50,40 +42,13 @@ public class Board extends GridPane {
     //GridPane board = new GridPane();
 
 
-
-
     public Board() {
-        this.setId("board");
 
     }
-
-
-
-
-
-
-    //circle for discs which will be placed
-    public static class Disc extends Circle {
-        private final boolean win;
-
-        public Disc(boolean red) {
-            super(size / 2, red ? Color.RED : Color.YELLOW);
-            this.win = red;
-
-            setCenterX(size / 2);
-            setCenterY(size / 2);
-        }
-    }
-
-
-
-
-
 
     public Shape generateBoard() {
 
         Shape shape = new Rectangle((columns + 1) * size, (rows + 1) * size);
-
         for (int y = 0; y < rows; y++) {
             for (int x = 0; x < columns; x++) {
                 Circle circle = new Circle(size / 2);
@@ -93,25 +58,20 @@ public class Board extends GridPane {
                 circle.setTranslateY(y * (size + 5) + size / 4);
 
                 shape = Shape.subtract(shape, circle);
+                shape.setFill(Color.rgb(20, 20, 200));
+                shape.setSmooth(true);
             }
         }
 
         return shape;
     }
 
-
-
-
-
-
-
-
-
     public List<Rectangle> makeColumns() {
 
         List<Rectangle> list = new ArrayList<>();
 
         for (int x = 0; x < columns; x++) {
+            //vertical lines basically
             Rectangle rect = new Rectangle(size, (rows + 1) * size);
             rect.setTranslateX(x * (size + 5) + size / 4);
             //transparent by default for the circles
@@ -126,14 +86,6 @@ public class Board extends GridPane {
 
         return list;
     }
-
-
-
-
-
-
-
-
 
     public void validateMove(Disc disc, int column) {
         int row = rows - 1;
@@ -166,14 +118,6 @@ public class Board extends GridPane {
         animation.play();
     }
 
-
-
-
-
-
-
-
-
     public boolean gameEnded(int column, int row) {
 
         List<Point2D> vertical = IntStream.rangeClosed(row - 3, row + 3)
@@ -198,13 +142,6 @@ public class Board extends GridPane {
                 || checkRange(diagonal1) || checkRange(diagonal2);
     }
 
-
-
-
-
-
-
-
     public boolean checkRange(List<Point2D> points) {
         int chain = 0;
 
@@ -226,30 +163,18 @@ public class Board extends GridPane {
         return false;
     }
 
-
-
-
-
-
-
-
-
-
     public void gameOver() {
 
+
         if (redWin) {
-            PlayerStatusView playerStatusView = new PlayerStatusView(this.primary_stage, this.player1, this.player2, "Winner", "Loser");
+            PlayerStatusView playerStatusView = new PlayerStatusView(this.primary_stage, this.player1, this.player2, "Is the Winner", "is the Loser");
             playerStatusView.startStausView();
         } else {
-            PlayerStatusView playerStatusView = new PlayerStatusView(this.primary_stage, this.player1, this.player2, "Loser", "Winner");
+            PlayerStatusView playerStatusView = new PlayerStatusView(this.primary_stage, this.player1, this.player2, "Is the Loser", "is the Winner");
             playerStatusView.startStausView();
         }
 
     }
-
-
-
-
 
     public Optional<Disc> getDisc(int column, int row) {
         if (column < 0 || column >= columns
@@ -258,9 +183,20 @@ public class Board extends GridPane {
 
         return Optional.ofNullable(grid[column][row]);
     }
+
+    //circle for discs which will be placed
+    public static class Disc extends Circle {
+        private final boolean win;
+
+        public Disc(boolean red) {
+            super(size / 2, red ? Color.RED : Color.YELLOW);
+            this.win = red;
+
+            setCenterX(size / 2);
+            setCenterY(size / 2);
+        }
+    }
 }
-
-
 
 
 //Not really good idea.. better use other method to generate

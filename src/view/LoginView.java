@@ -19,7 +19,7 @@ public class LoginView extends GridPane {
 
     private Stage stage;
 
-    public LoginView(Stage primaryStage){
+    public LoginView(Stage primaryStage) {
 
         this.stage = primaryStage;
 
@@ -34,7 +34,7 @@ public class LoginView extends GridPane {
         this.startGameButton = new Button("Play");
         startGameButton.setId("Button");
 
-        this.add(player1, 0 ,0);
+        this.add(player1, 0, 0);
         this.add(player2, 0, 1);
 
         this.add(name1, 1, 0);
@@ -46,7 +46,7 @@ public class LoginView extends GridPane {
     }
 
 
-    public Button getstartGameButton(){
+    public Button getstartGameButton() {
         return startGameButton;
     }
 
@@ -66,7 +66,7 @@ public class LoginView extends GridPane {
         return name2;
     }
 
-    public void startLogin(){
+    public void startLogin() {
         this.setId("LoginView");
         Scene scene = new Scene(this, 800, 800);
         stage.setScene(scene);
@@ -74,8 +74,7 @@ public class LoginView extends GridPane {
         stage.show();
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
 
-}
-
+    }
 
 
 }

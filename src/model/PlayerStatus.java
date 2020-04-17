@@ -1,9 +1,9 @@
 package model;
 
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
-public class PlayerStatus extends HBox {
+public class PlayerStatus extends VBox {
 
     private Label playerName;
     private Label isWinner;

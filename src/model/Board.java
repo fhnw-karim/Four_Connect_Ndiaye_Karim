@@ -3,10 +3,6 @@ package model;
 
 import javafx.animation.TranslateTransition;
 import javafx.geometry.Point2D;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.effect.Light;
-import javafx.scene.effect.Lighting;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -26,39 +22,75 @@ import java.util.stream.IntStream;
 public class Board extends GridPane {
 
 
-    private int rows;
-    private int columns;
-    public String player1,player2;
 
-    public static final int TILE_SIZE = 80;
-    public static final int COLUMNS = 7;
-    public static final int ROWS = 6;
-    public Pane discRoot = new Pane();
-    public boolean redMove = true;
-    public Disc[][] grid = new Disc[COLUMNS][ROWS];
+    public String player1, player2;
 
+    public Pane root = new Pane();
+
+
+
+    public static final int columns = 7;
+    public static final int rows = 6;
+
+    public boolean redWin = true;
+
+    //makes circles bigger
+    public static final int size = 100;
+
+    //2d array
+    public Disc[][] grid = new Disc[columns][rows];
+
+    /*useless
     private ArrayList<Integer> vertical;
     private ArrayList<Integer> horizontal;
+    */
+
     public Stage primary_stage;
 
-    GridPane board = new GridPane();
+    //GridPane board = new GridPane();
+
+
+
 
     public Board() {
         this.setId("board");
 
     }
 
-    public javafx.scene.shape.Shape generateBoard() {
-        Shape shape = new Rectangle((COLUMNS + 1) * TILE_SIZE, (ROWS + 1) * TILE_SIZE);
-        shape.setId("shape");
 
-        for (int y = 0; y < ROWS; y++) {
-            for (int x = 0; x < COLUMNS; x++) {
-                Circle circle = new Circle(TILE_SIZE / 2);
-                circle.setCenterX(TILE_SIZE / 2);
-                circle.setCenterY(TILE_SIZE / 2);
-                circle.setTranslateX(x * (TILE_SIZE + 5) + TILE_SIZE / 4);
-                circle.setTranslateY(y * (TILE_SIZE + 5) + TILE_SIZE / 4);
+
+
+
+
+    //circle for discs which will be placed
+    public static class Disc extends Circle {
+        private final boolean win;
+
+        public Disc(boolean red) {
+            super(size / 2, red ? Color.RED : Color.YELLOW);
+            this.win = red;
+
+            setCenterX(size / 2);
+            setCenterY(size / 2);
+        }
+    }
+
+
+
+
+
+
+    public Shape generateBoard() {
+
+        Shape shape = new Rectangle((columns + 1) * size, (rows + 1) * size);
+
+        for (int y = 0; y < rows; y++) {
+            for (int x = 0; x < columns; x++) {
+                Circle circle = new Circle(size / 2);
+                circle.setCenterX(size / 2);
+                circle.setCenterY(size / 2);
+                circle.setTranslateX(x * (size + 5) + size / 4);
+                circle.setTranslateY(y * (size + 5) + size / 4);
 
                 shape = Shape.subtract(shape, circle);
             }
@@ -67,27 +99,44 @@ public class Board extends GridPane {
         return shape;
     }
 
-    public java.util.List<javafx.scene.shape.Rectangle> makeColumns() {
+
+
+
+
+
+
+
+
+    public List<Rectangle> makeColumns() {
+
         List<Rectangle> list = new ArrayList<>();
 
-        for (int x = 0; x < COLUMNS; x++) {
-            javafx.scene.shape.Rectangle rect = new Rectangle(TILE_SIZE, (ROWS + 1) * TILE_SIZE);
-            rect.setTranslateX(x * (TILE_SIZE + 5) + TILE_SIZE / 4);
+        for (int x = 0; x < columns; x++) {
+            Rectangle rect = new Rectangle(size, (rows + 1) * size);
+            rect.setTranslateX(x * (size + 5) + size / 4);
+            //transparent by default for the circles
             rect.setFill(Color.TRANSPARENT);
 
-            rect.setOnMouseEntered(e -> rect.setFill(Color.rgb(200, 200, 50, 0.3)));
-            rect.setOnMouseExited(e -> rect.setFill(Color.TRANSPARENT));
 
             final int column = x;
-            rect.setOnMouseClicked(e -> validateMove(new Disc(redMove), column));
+            rect.setOnMouseClicked(e -> validateMove(new Disc(redWin), column));
 
             list.add(rect);
         }
 
         return list;
     }
+
+
+
+
+
+
+
+
+
     public void validateMove(Disc disc, int column) {
-        int row = ROWS - 1;
+        int row = rows - 1;
         do {
             if (!getDisc(column, row).isPresent())
                 break;
@@ -99,24 +148,34 @@ public class Board extends GridPane {
             return;
 
         grid[column][row] = disc;
-        discRoot.getChildren().add(disc);
-        disc.setTranslateX(column * (TILE_SIZE + 5) + TILE_SIZE / 4);
+        root.getChildren().add(disc);
+        disc.setTranslateX(column * (size + 5) + size / 4);
 
         final int currentRow = row;
 
-        TranslateTransition animation = new TranslateTransition(Duration.seconds(0.001), disc);
-        animation.setToY(row * (TILE_SIZE + 5) + TILE_SIZE / 4);
+        //if animation is too fast, there will be multiple discs of same color....
+        TranslateTransition animation = new TranslateTransition(Duration.seconds(0.01), disc);
+        animation.setToY(row * (size + 5) + size / 4);
         animation.setOnFinished(e -> {
             if (gameEnded(column, currentRow)) {
                 gameOver();
             }
 
-            redMove = !redMove;
+            redWin = !redWin;
         });
         animation.play();
     }
 
+
+
+
+
+
+
+
+
     public boolean gameEnded(int column, int row) {
+
         List<Point2D> vertical = IntStream.rangeClosed(row - 3, row + 3)
                 .mapToObj(r -> new Point2D(column, r))
                 .collect(Collectors.toList());
@@ -139,6 +198,13 @@ public class Board extends GridPane {
                 || checkRange(diagonal1) || checkRange(diagonal2);
     }
 
+
+
+
+
+
+
+
     public boolean checkRange(List<Point2D> points) {
         int chain = 0;
 
@@ -146,8 +212,8 @@ public class Board extends GridPane {
             int column = (int) p.getX();
             int row = (int) p.getY();
 
-            Disc disc = getDisc(column, row).orElse(new Disc(!redMove));
-            if (disc.red == redMove) {
+            Disc disc = getDisc(column, row).orElse(new Disc(!redWin));
+            if (disc.win == redWin) {
                 chain++;
                 if (chain == 4) {
                     return true;
@@ -160,38 +226,44 @@ public class Board extends GridPane {
         return false;
     }
 
+
+
+
+
+
+
+
+
+
     public void gameOver() {
 
-        if(redMove){
-            PlayerStatusView playerStatusView= new PlayerStatusView(this.primary_stage,this.player1,this.player2,"Winner","Loser");
+        if (redWin) {
+            PlayerStatusView playerStatusView = new PlayerStatusView(this.primary_stage, this.player1, this.player2, "Winner", "Loser");
             playerStatusView.startStausView();
-        }else{
-            PlayerStatusView playerStatusView= new PlayerStatusView(this.primary_stage,this.player1,this.player2,"Loser","Winner");
+        } else {
+            PlayerStatusView playerStatusView = new PlayerStatusView(this.primary_stage, this.player1, this.player2, "Loser", "Winner");
             playerStatusView.startStausView();
         }
 
     }
 
+
+
+
+
     public Optional<Disc> getDisc(int column, int row) {
-        if (column < 0 || column >= COLUMNS
-                || row < 0 || row >= ROWS)
+        if (column < 0 || column >= columns
+                || row < 0 || row >= rows)
             return Optional.empty();
 
         return Optional.ofNullable(grid[column][row]);
     }
-
-    public static class Disc extends Circle {
-        private final boolean red;
-        public Disc(boolean red) {
-            super(TILE_SIZE / 2, red ? Color.RED : Color.YELLOW);
-            this.red = red;
-
-            setCenterX(TILE_SIZE / 2);
-            setCenterY(TILE_SIZE / 2);
-        }
-    }
+}
 
 
+
+
+//Not really good idea.. better use other method to generate
 //    public void generateBoard(){
 //        this.rows = 7;
 //        this.columns = 6;
@@ -214,6 +286,6 @@ public class Board extends GridPane {
 //    }
 
 
-}
+
 
 

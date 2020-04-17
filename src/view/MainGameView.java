@@ -1,9 +1,7 @@
 package view;
 
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import model.Board;
@@ -29,18 +27,18 @@ public class MainGameView extends BorderPane {
         this.setId("FC_View");
 
         Board gameBoard = new Board();
+
         gameBoard.primary_stage =stage;
         gameBoard.player1 = player1;
         gameBoard.player2 = player2;
         BorderPane rootPane = new BorderPane();
 
         Pane root = new Pane();
-        root.getChildren().add(gameBoard.discRoot);
+        root.getChildren().add(gameBoard.root);
 
         Shape gridShape = gameBoard.generateBoard();
 
 
-        rootPane.setBackground(new Background(new BackgroundFill(Color.rgb(0, 212, 255,1), CornerRadii.EMPTY, Insets.EMPTY)));
 
         root.getChildren().add(gridShape);
 
@@ -48,11 +46,11 @@ public class MainGameView extends BorderPane {
 
         rootPane.getChildren().addAll(root);
 
-        Scene scene = new Scene(rootPane, (gameBoard.COLUMNS + 1) * gameBoard.TILE_SIZE, (gameBoard.ROWS + 1) * gameBoard.TILE_SIZE);
+        Scene scene = new Scene(rootPane, (gameBoard.columns + 1) * gameBoard.size, (gameBoard.rows + 1) * gameBoard.size);
         stage.setScene(scene);
         stage.setTitle("Main Game");
         stage.show();
-        stage.setResizable(false);
+        stage.setResizable(true);
         scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
     }
 

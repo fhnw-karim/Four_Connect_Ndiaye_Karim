@@ -31,7 +31,7 @@ public class LoginView extends GridPane {
         this.name2 = new TextField("");
         this.name1.setId("nameField2");
 
-        this.startGameButton = new Button("START");
+        this.startGameButton = new Button("Play");
         startGameButton.setId("Button");
 
         this.add(player1, 0 ,0);
